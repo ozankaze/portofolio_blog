@@ -2,25 +2,28 @@
 
 require_once("core/init.php");
 
-if ( isset($_POST['submit']) ) {
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-
-  if( !empty(trim($username)) AND !empty(trim($password)) ) {
-
-    if( cek_data($username, $password) ) {
-
-      header("Location: index.php");
-
-    }
-
-  } else {
-    echo 'Password harus di isi';
-  }
-
+if(isset($_SESSION['user'])) {
+  header("Location: index.php");
+} else {
+  if ( isset($_POST['submit']) ) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
   
+    if( !empty(trim($username)) AND !empty(trim($password)) ) {
+  
+      if( cek_data($username, $password) ) {
+        $_SESSION['user'] = $username;
+        header("Location: index.php");
+  
+      }
+  
+    } else {
+      echo 'Password harus di isi';
+    }
+  
+    
+  }  
 }
-
 
 ?>
 

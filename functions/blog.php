@@ -9,10 +9,12 @@ function cek_data($username, $password) {
 
   $query = "SELECT * FROM `users` WHERE `username` = '$username' AND `password` = '$password'";
   // var_dump($query);die();
-  if( mysqli_query($link, $query) ) {
-    return true;
-  } else {
-    return false;
+  if( $result = mysqli_query($link, $query) ) {
+    if( $a = mysqli_num_rows($result) == 1 ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
