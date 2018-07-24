@@ -4,5 +4,6 @@
         <a href="#">Back to top</a>
       </p>
     </footer>
+  </div>
   </body>
 </html>

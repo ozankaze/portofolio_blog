@@ -1,5 +1,6 @@
 <?php
 
+// cek admin login
 function cek_data($username, $password) {
   global $link;
 
