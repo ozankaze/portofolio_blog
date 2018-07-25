@@ -19,5 +19,22 @@ function cek_data($username, $password) {
 
 }
 
+// create data
+function create_data($judul, $tag, $text) {
+  global $link;
+
+  $judul = mysqli_real_escape_string($link, $judul);
+  $tag = mysqli_real_escape_string($link, $judul);
+  $text = mysqli_real_escape_string($link, $judul);
+
+  $query = "INSERT INTO `blogs` (`judul`, `tag`, `text`) VALUES ('$judul', '$tag', '$text')";
+  // var_dump($query);die();
+  if( mysqli_query($link, $query) ) {
+    header("Location: index.php");
+  } else {
+    return false;
+  }
+}
+
 
 ?>
