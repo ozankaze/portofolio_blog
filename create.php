@@ -8,9 +8,9 @@ if ( !isset($_SESSION['user']) ) {
 
 if( isset($_POST['submit']) ) {
 
-    $query = create_data($judul, $tag, $text);
+  $query = create_data($judul, $tag, $text);
 
-  }
+}
 
 
 ?>

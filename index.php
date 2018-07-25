@@ -52,7 +52,7 @@ $articles = mysqli_query($link, $query);
               <a href="#">Continue reading</a>
               <?php if( $login == true ) : ?>
                 <a href="update.php?id=<?php echo $row['id'] ?>">Edit</a>
-                <a href="#">Delete</a>
+                <a href="delete.php?id=<?php echo $row['id'] ?>">Delete</a>
               <?php endif ?>
             </div>
             <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
