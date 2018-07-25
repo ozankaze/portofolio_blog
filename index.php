@@ -51,7 +51,7 @@ $articles = mysqli_query($link, $query);
               <p class="card-text mb-auto"><?php echo $row['text'] ?></p>
               <a href="#">Continue reading</a>
               <?php if( $login == true ) : ?>
-                <a href="#">Edit</a>
+                <a href="update.php?id=<?php echo $row['id'] ?>">Edit</a>
                 <a href="#">Delete</a>
               <?php endif ?>
             </div>

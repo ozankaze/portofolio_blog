@@ -21,7 +21,12 @@ function cek_data($username, $password) {
 
 // create data
 function create_data($judul, $tag, $text) {
+  
   global $link;
+
+  $judul = $_POST['judul'];
+  $tag = $_POST['tag'];
+  $text = $_POST['text'];
 
   $judul = mysqli_real_escape_string($link, $judul);
   $tag = mysqli_real_escape_string($link, $judul);
@@ -33,6 +38,28 @@ function create_data($judul, $tag, $text) {
     header("Location: index.php");
   } else {
     return false;
+  }
+}
+
+// update data
+function update_data($id) {
+
+  global $link;
+
+  $judul = $_POST['judul'];
+  $tag = $_POST['tag'];
+  $text = $_POST['text'];
+
+  $judul = mysqli_real_escape_string($link, $judul);
+  $tag = mysqli_real_escape_string($link, $judul);
+  $text = mysqli_real_escape_string($link, $judul);
+
+  $query = "UPDATE `blogs` SET `judul` = '$_POST[judul]', `tag` = '$_POST[tag]', `text` = '$_POST[text]' WHERE `id`='$id'";
+  // var_dump($query);die();
+  if( mysqli_query($link, $query) ) {
+    header("Location: index.php");
+  } else {
+    echo 'gagal';
   }
 }
 
