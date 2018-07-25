@@ -7,12 +7,10 @@ if ( !isset($_SESSION['user']) ) {
 }
 
 if( isset($_POST['submit']) ) {
-    $judul = $_POST['judul'];
-    $tag = $_POST['tag'];
-    $text = $_POST['text'];
 
     $query = create_data($judul, $tag, $text);
-}
+
+  }
 
 
 ?>
