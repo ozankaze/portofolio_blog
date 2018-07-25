@@ -60,6 +60,7 @@ if(isset($_SESSION['user'])) {
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div> -->
+      <a href="index.php">Return Ke Home</a>
       <button name="submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p> -->
     </form>
