@@ -50,6 +50,10 @@ $articles = mysqli_query($link, $query);
               <div class="mb-1 text-muted"><?php echo $row['waktu'] ?></div>
               <p class="card-text mb-auto"><?php echo $row['text'] ?></p>
               <a href="#">Continue reading</a>
+              <?php if( $login == true ) : ?>
+                <a href="#">Edit</a>
+                <a href="#">Delete</a>
+              <?php endif ?>
             </div>
             <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
           </div>
