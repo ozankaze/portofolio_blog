@@ -104,5 +104,18 @@ function update_data($judul, $tag, $text, $image, $id) {
   }
 }
 
+// cari data
+function cari_data($search) {
+  global $link;
+
+  $query = "SELECT * FROM `blogs` WHERE `judul` LIKE '%$search%'";
+  //var_dump($query);die();
+  if($hasil = mysqli_query($link, $query) ) {
+    return $hasil;
+  } else {
+    return false;
+  }
+}
+
 
 ?>

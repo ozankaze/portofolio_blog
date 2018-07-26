@@ -8,6 +8,12 @@ require_once "view/header.php";
 
 $query = "SELECT * FROM blogs";
 $articles = mysqli_query($link, $query);
+// $row = mysqli_fetch_assoc($link, $articles);
+
+if( isset($_GET['search']) ) {
+  $search = $_GET['search'];
+  $articles = cari_data($search);
+}
 
 ?>
 
@@ -39,7 +45,8 @@ $articles = mysqli_query($link, $query);
       </div>
 
       <div class="row mb-2">
-        <?php while( $row = mysqli_fetch_assoc($articles) ) : ?>
+        <!-- ini parameter gak bisa nerima true false mysqli_fetch_assoc-->
+        <?php while( $row = mysqli_fetch_assoc($articles) ) : ?> 
         <div class="col-md-6">
           <div class="card flex-md-row mb-4 box-shadow h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
