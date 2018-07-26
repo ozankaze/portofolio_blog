@@ -62,7 +62,7 @@ function upload() {
             }
 
             //mengupload
-            $a = move_uploaded_file($asal, $namafile);
+            move_uploaded_file($asal, $namafile);
             echo 'berhasil upload!';
 
         }else{
@@ -82,19 +82,20 @@ function upload() {
 
 
 // update data
-function update_data($id) {
+function update_data($judul, $tag, $text, $image, $id) {
 
   global $link;
-
-  $judul = $_POST['judul'];
-  $tag = $_POST['tag'];
-  $text = $_POST['text'];
 
   $judul = mysqli_real_escape_string($link, $judul);
   $tag = mysqli_real_escape_string($link, $judul);
   $text = mysqli_real_escape_string($link, $judul);
+  $nama1=$_FILES['file']['name'];
+  $image = upload();
 
-  $query = "UPDATE `blogs` SET `judul` = '$_POST[judul]', `tag` = '$_POST[tag]', `text` = '$_POST[text]' WHERE `id`='$id'";
+  $query = "UPDATE `blogs` SET  `judul` = '$_POST[judul]', 
+                                `tag` = '$_POST[tag]', 
+                                `text` = '$_POST[text]', 
+                                `file` = '$nama1' WHERE `id`='$id'";
   // var_dump($query);die();
   if( mysqli_query($link, $query) ) {
     header("Location: index.php");

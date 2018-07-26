@@ -54,7 +54,7 @@ $articles = mysqli_query($link, $query);
               <?php endif ?>
             </div>
             <!-- <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"> -->
-            <img src="<?php echo $row['file'] ?>" alt="" width="240" height="248">
+            <img src="view/images/<?php echo $row['file'] ?>" alt="" width="240" height="248">
           </div>
         </div>
         <?php endwhile ?>
