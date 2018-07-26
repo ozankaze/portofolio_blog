@@ -44,18 +44,17 @@ $articles = mysqli_query($link, $query);
           <div class="card flex-md-row mb-4 box-shadow h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
               <strong class="d-inline-block mb-2 text-primary"><?php echo $row['tag'] ?></strong>
-              <h3 class="mb-0">
-                <a class="text-dark" href="#"><?php echo $row['judul'] ?></a>
-              </h3>
+              <h3 class="mb-0"> <?php echo $row['judul'] ?></h3>
               <div class="mb-1 text-muted"><?php echo $row['waktu'] ?></div>
               <p class="card-text mb-auto"><?php echo $row['text'] ?></p>
-              <a href="#">Continue reading</a>
+              <a href="singel.php?id=<?php echo $row['id'] ?>">Continue reading</a>
               <?php if( $login == true ) : ?>
                 <a href="update.php?id=<?php echo $row['id'] ?>">Edit</a>
                 <a href="delete.php?id=<?php echo $row['id'] ?>">Delete</a>
               <?php endif ?>
             </div>
-            <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+            <!-- <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"> -->
+            <img src="<?php echo $row['file'] ?>" alt="" width="240" height="248">
           </div>
         </div>
         <?php endwhile ?>
