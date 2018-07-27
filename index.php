@@ -10,10 +10,25 @@ $query = "SELECT * FROM blogs";
 $articles = mysqli_query($link, $query);
 // $row = mysqli_fetch_assoc($link, $articles);
 
+$total = mysqli_num_rows($articles);
+
 if( isset($_GET['search']) ) {
   $search = $_GET['search'];
   $articles = cari_data($search);
 }
+
+// pagination
+$perPage = 3; // halaman
+$page = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
+// die("per " . $page);
+
+$start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
+
+$query2 = "SELECT * FROM `blogs` LIMIT $start, $perPage";
+$articles2 = mysqli_query($link, $query2);
+
+$pages = ceil($total/$perPage);
+
 
 ?>
 
@@ -65,6 +80,11 @@ if( isset($_GET['search']) ) {
           </div>
         </div>
         <?php endwhile ?>
+      </div>
+      <div>
+        <?php for( $i = 1; $i <= $pages; $i++ ) : ?>
+          <a href="?halaman=<?php echo $i ?>"><?php echo $i ?></a>
+        <?php endfor ?>
       </div>
 
 <?php
